@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useRef, useState } from 'react'
+import style from './App.module.css'
+export const App = () => {
+  const imageRef = useRef(null)
+  const [imageChangeWidth ,setimageChangeWidth] = useState()
+  const [imageChangeHeight ,setimageChangeHeight] = useState()
+  const [imag, setImag] = useState('')
 
-function App() {
-  const [count, setCount] = useState(0)
-
+  const changeImage = () => {
+    imageRef.current.style.width = `${imageChangeWidth}px`
+    imageRef.current.style.height = `${imageChangeHeight}px`
+  }
+  const cancelImage = () => {
+    imageRef.current.style.width = `299px`
+    imageRef.current.style.height = `168px`
+  }
   return (
-    <>
+    <div>
+      <img ref={imageRef} src={imag}/>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <input onChange={e => setimageChangeWidth(e.target.value)} value={imageChangeWidth}/>
+        <input onChange={e => setimageChangeHeight(e.target.value)} value={imageChangeHeight}/>
+        <input onChange={e => setImag(e.target.value)} value={imag}/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <button onClick={changeImage}>Change Image</button>
+      <button onClick={cancelImage} className={style.buttonCancel}> Сancel </button>
+    </div>
   )
 }
-
-export default App
