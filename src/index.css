@@ -23,10 +23,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: none;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100px;
 }
 
 h1 {
@@ -44,7 +44,6 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  margin: 4px;
 }
 button:hover {
   border-color: #3e3f5b;
