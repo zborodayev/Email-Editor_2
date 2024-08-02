@@ -23,10 +23,11 @@ a:hover {
 }
 
 body {
-  margin: none;
+  margin: 0;
+  display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100px;
+  min-height: 100vh;
 }
 
 h1 {
@@ -46,11 +47,11 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #fdfdfd;
+  border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
-  border: 2px solid #484848;
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
